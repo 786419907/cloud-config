@@ -18,7 +18,7 @@ services:
   wordpress:
     depends_on:
       - db
-    image: 10.30.12.55/docker/wordpress
+    image: docker/wordpress
     ports:
       - "8000:80"
     restart: always
