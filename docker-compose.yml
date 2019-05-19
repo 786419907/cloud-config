@@ -6,16 +6,6 @@ services:
     command: --default-authentication-plugin=mysql_native_password #这行代码解决无法访问的问题
     ports:
       - "3306:3306"
-  web:
-    networks: # 自定义网络
-      - my-network
-      
-  mysql:
-    networks: # 同一个网络
-      - my-network
-         
-networks:          
-  my-network:    
     volumes: 
       - /var/lib/mysql:/var/lib/mysql
     restart: always
