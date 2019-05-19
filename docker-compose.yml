@@ -4,6 +4,8 @@ services:
   db: 
     image: mysql:5.7
     command: --default-authentication-plugin=mysql_native_password #这行代码解决无法访问的问题
+    ports:
+      - "3306:3306"
     volumes: 
       - /var/lib/mysql:/var/lib/mysql
     restart: always
