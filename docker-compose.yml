@@ -5,15 +5,15 @@ services:
     image: mysql:5.7
     command: --default-authentication-plugin=mysql_native_password #这行代码解决无法访问的问题
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes: 
-      - /var/lib/mysql:/var/lib/mysql
+      - /opt/mysql:/var/lib/mysql
     restart: always
     environment: 
       MYSQL_ROOT_PASSWORD: P@ssW0rd
       MYSQL_DATABASE: wordpress
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_USER: qwert
+      MYSQL_PASSWORD: asdfg
   wordpress: 
     depends_on: 
       - db
@@ -22,8 +22,8 @@ services:
       - "8888:80"
     restart: always
     environment: 
-      WORDPRESS_DB_HOST: db:3307
-      WORDPRESS_DB_USER: root
-      WORDPRESS_DB_PASSWORD: root
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: qwert
+      WORDPRESS_DB_PASSWORD: asdfg
 volumes: 
   db_data: 
